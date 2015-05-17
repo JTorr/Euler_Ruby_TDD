@@ -1,4 +1,4 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/euler01.rb'
+Dir["./lib/*.rb"].each {|file| require file }
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
