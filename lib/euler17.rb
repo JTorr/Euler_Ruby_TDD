@@ -11,13 +11,13 @@ def letter_count(num)
   elsif num_chars.length == 3
     hundreds = HUNDREDS_HASH[num_chars[0].to_i] || 0
     tens = NUM_HASH[num_chars[1..2].join.to_i] || TENS_HASH[num_chars[-2].to_i]
-    ones = num_chars[-1].to_i || 0
+    ones = NUM_HASH[num_chars[-1].to_i] || 0
     result = hundreds + tens + ones
     result += 3 if uneven_hundred?(num_chars)
   else
     hundreds = 0
-    tens = NUM_HASH[num_chars[1..2].join.to_i] || TENS_HASH[num_chars[-2].to_i]
-    ones = num_chars[-1].to_i || 0
+    tens = NUM_HASH[num_chars[0..2].join.to_i] || TENS_HASH[num_chars[-2].to_i]
+    ones = NUM_HASH[num_chars[-1].to_i] || 0
     result = hundreds + tens + ones
   end
     # test to see if it is a 3-digit number not ending in 00, if so, add 3 digits for "and"
