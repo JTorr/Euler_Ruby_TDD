@@ -7,20 +7,24 @@ HUNDREDS_HASH = { 0 => 0, 1 => 10, 2 => 10, 3 => 12, 4 => 11, 5 => 12, 6 => 10, 
 def letter_count(num)
   num_chars = num.to_s.chars.to_a
   if NUM_HASH.keys.include?(num)
-    NUM_HASH[num]
-  else
+    result = NUM_HASH[num]
+  elsif num_chars.length == 3
+    hundreds = HUNDREDS_HASH[num_chars[0].to_i] || 0
+    tens = NUM_HASH[num_chars[1..2].join.to_i] || TENS_HASH[num_chars[-2].to_i]
     ones = num_chars[-1].to_i || 0
-    tens = num_chars[-2].to_i || 0
-    hundreds = num_chars[-3].to_i || 0
-    result = TENS_HASH[tens] + NUM_HASH[ones] + HUNDREDS_HASH[hundreds]
-
-    # test to see if it is a 3-digit number not ending in 00, if so, add 3 digits for "and"
-    result += 3 unless even_hundred?(num_chars)
-    return result
+    result = hundreds + tens + ones
+    result += 3 if uneven_hundred?(num_chars)
+  else
+    hundreds = 0
+    tens = NUM_HASH[num_chars[1..2].join.to_i] || TENS_HASH[num_chars[-2].to_i]
+    ones = num_chars[-1].to_i || 0
+    result = hundreds + tens + ones
   end
+    # test to see if it is a 3-digit number not ending in 00, if so, add 3 digits for "and"
+    return result
 end
 
-def even_hundred?(num_chars)
+def uneven_hundred?(num_chars)
   three_digits?(num_chars) && !ends_in_zeros?(num_chars)
 end
 
@@ -29,5 +33,5 @@ def three_digits?(num_chars)
 end
 
 def ends_in_zeros?(num_chars)
-  num_chars[1] == 0 && num_chars[2] == 0
+  num_chars[1] == "0" && num_chars[2] == "0"
 end
