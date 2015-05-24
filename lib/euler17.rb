@@ -6,11 +6,14 @@ HUNDREDS_HASH = { 0 => 0, 1 => 10, 2 => 10, 3 => 12, 4 => 11, 5 => 12, 6 => 10, 
 
 def letter_count(num)
   num_chars = num.to_s.chars.to_a
+  require 'pry'; binding.pry
   if NUM_HASH.keys.include?(num)
     result = NUM_HASH[num]
   elsif num_chars.length == 3
     hundreds = HUNDREDS_HASH[num_chars[0].to_i] || 0
     tens = NUM_HASH[num_chars[1..2].join.to_i] || TENS_HASH[num_chars[-2].to_i]
+
+    #TODO: Fix this so that it does not count the last digit if the number is found in the NUM_HASH
     ones = NUM_HASH[num_chars[-1].to_i] || 0
     result = hundreds + tens + ones
     result += 3 if uneven_hundred?(num_chars)
