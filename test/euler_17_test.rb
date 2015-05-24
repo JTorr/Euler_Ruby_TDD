@@ -39,4 +39,16 @@ class LetterCounter < Minitest::Test
     assert_equal 6, letter_count(80)
     assert_equal 6, letter_count(90)
   end
+
+  def test_counts_letters_for_two_digit_numbers
+    assert_equal 9, letter_count(21)
+    assert_equal 9, letter_count(32)
+    assert_equal 10, letter_count(43)
+    assert_equal 9, letter_count(55)
+    assert_equal 8, letter_count(66)
+    assert_equal 11, letter_count(74)
+    assert_equal 11, letter_count(87)
+    assert_equal 10, letter_count(99)
+    assert_equal 11, letter_count(98)
+  end
 end
