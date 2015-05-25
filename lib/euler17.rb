@@ -2,7 +2,7 @@ NUM_HASH = {0 => 0, 1 => 3, 2 => 3, 3 => 5, 4 => 4, 5 => 4, 6 => 3, 7 => 5, 8 =>
 TENS_HASH = {0 => 0, 2 => 6, 3 => 6, 4 => 5, 5 => 5, 6 => 5, 7 => 7, 8 => 6, 9 => 6 }
 
 # Each value for hundreds includes the word "hundred". 
-HUNDREDS_HASH = { 0 => 0, 1 => 10, 2 => 10, 3 => 12, 4 => 11, 5 => 12, 6 => 10, 7 => 12, 8 => 12, 9 => 11 }
+HUNDREDS_HASH = { 0 => 0, 1 => 10, 2 => 10, 3 => 12, 4 => 11, 5 => 11, 6 => 10, 7 => 12, 8 => 12, 9 => 11 }
 
 def letter_count(num)
   num_chars = num.to_s.chars.to_a
