@@ -67,5 +67,11 @@ class LetterCounter < Minitest::Test
   def test_counts_letters_for_three_digit_numbers
     assert_equal 16, letter_count(110)
     assert_equal 21, letter_count(219)
+    assert_equal 21, letter_count(320)
+    assert_equal 24, letter_count(999)
+  end
+
+  def test_counts_letters_for_one_thousand
+    assert_equal 11, letter_count(1000)
   end
 end
