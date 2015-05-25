@@ -69,9 +69,19 @@ class LetterCounter < Minitest::Test
     assert_equal 21, letter_count(219)
     assert_equal 21, letter_count(320)
     assert_equal 24, letter_count(999)
+    assert_equal 23, letter_count(342)
+    assert_equal 20, letter_count(115)
   end
 
   def test_counts_letters_for_one_thousand
     assert_equal 11, letter_count(1000)
+  end
+
+  def test_sums_letters_for_number_range
+    assert_equal 36, sum_letter_counts((1..9).to_a)
+    assert_equal 70, sum_letter_counts((10..19).to_a)
+    assert_equal 748, sum_letter_counts((20..99).to_a)
+    assert_equal 20259, sum_letter_counts((100..999).to_a)
+    assert_equal 21124, sum_letter_counts((1..1000).to_a)
   end
 end

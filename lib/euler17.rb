@@ -42,3 +42,8 @@ def find_tens_value(num_chars)
   return tens, num_chars
 end
     
+def sum_letter_counts(array)
+  array.inject(0) {|sum, num| sum + letter_count(num) }
+end
+
+puts sum_letter_counts((100..999).to_a)
