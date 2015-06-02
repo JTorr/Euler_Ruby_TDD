@@ -1,9 +1,3 @@
-#Set the 1st factor to 99, second to 99
-#Multiply them together to get the result
-#If the result is a palindrome, return the result
-#Otherwise reduce the first factor by 1 and multiply again until you get a palindrome
-#If the first_factor reaches 0, reset it to the highest possible factor & reset the 2nd factor to 99
-#Repeat until you get a palindrome
 
 def largest_factors(digits)
   nines = "9" * (digits - 1)
